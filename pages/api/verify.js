@@ -1,9 +1,7 @@
-// verify.js
-import { nonce } from "../../db/user"
 var ethUtil = require('ethereumjs-util');
 
 export default function handler(req, res) {
-    let msg = "Hello "+nonce;
+    let msg = "Hello Prezi!"
 
     const signature = req.query['sig']
     const publicAddress = req.query['addr']
@@ -29,7 +27,6 @@ export default function handler(req, res) {
     const address = ethUtil.bufferToHex(addressBuffer);
 
     if (address.toLowerCase() === publicAddress.toLowerCase()) {
-        // Change the user's nonce in the DB
         return res
           .status(200)
           .send({ 
@@ -44,4 +41,3 @@ export default function handler(req, res) {
           });
       }
 }
-  
