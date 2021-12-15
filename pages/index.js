@@ -8,6 +8,7 @@ export default function Auth() {
 
     useEffect(() => {
         if (window?.ethereum) {
+            // Load ethereum object from MetaMask into web3js
             const web3 = new Web3(window.ethereum)
             setWeb3(web3)
         }
